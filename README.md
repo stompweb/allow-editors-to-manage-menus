@@ -11,7 +11,11 @@ As per the title - allow editors to manage menus
 
 ## About
 
-This is a regular request I get from clients. For this to work I have had to give editors the capabilities to 
+This is a regular request I get from clients. For this to work I have had to:
+
+* Give editors the capabilities to edit theme options
+* Remove the Apperance menu for editors
+* Add a new menu item to manage menus (by way of a redirect)
 
 ## Contribute
 

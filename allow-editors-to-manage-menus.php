@@ -32,17 +32,17 @@ add_action( 'admin_menu', 'aemm_remove_appearance_menu_item' );
 // Setup a dedicated Menus item
 function aemm_register_menu_page(){
 
-    add_menu_page( 'Menus', 'Menus', 'edit_pages', 'menus', 'aemm_menu_redirect', 'dashicons-list-view', 40 ); 
+    add_menu_page( 'Menus', 'Menus', 'edit_pages', 'menus', 'aemm_menu_redirect', 'dashicons-list-view', 41 ); 
 
 }
 add_action( 'admin_menu', 'aemm_register_menu_page' );
 
-// This is hack central, but the best way I could think it could be done
-function aemm_menu_redirect(){ ?>
-
-    <meta http-equiv="refresh" content="0;URL='<?php echo admin_url(); ?>nav-menus.php'" />  
-
-<?php }
+function aemm_change_menu_slug() {
+	global $menu;
+	// We know it's going to be in position 41 as we declared it above
+	$menu[41][2] = 'nav-menus.php';
+}
+add_action('admin_menu','aemm_change_menu_slug', 42);
 
 // Helper function to get the current user's role
 function get_current_user_role() {
